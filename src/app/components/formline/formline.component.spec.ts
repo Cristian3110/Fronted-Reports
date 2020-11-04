@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { FormAbaComponent } from './form-aba.component';
+import { FormlineComponent } from './formline.component';
 
-describe('FormAbaComponent', () => {
-  let component: FormAbaComponent;
-  let fixture: ComponentFixture<FormAbaComponent>;
+describe('FormlineComponent', () => {
+  let component: FormlineComponent;
+  let fixture: ComponentFixture<FormlineComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormAbaComponent ],
+      declarations: [ FormlineComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(FormAbaComponent);
+    fixture = TestBed.createComponent(FormlineComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
