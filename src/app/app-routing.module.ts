@@ -20,28 +20,12 @@ const routes: Routes = [
     loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
   },
   {
-    path: 'slect-serv',
-    loadChildren: () => import('./pages/slect-serv/slect-serv.module').then( m => m.SlectServPageModule)
-  },
-  {
-    path: 'select-serv',
-    loadChildren: () => import('./pages/select-serv/select-serv.module').then( m => m.SelectServPageModule)
-  },
-  {
     path: 'gestion',
     loadChildren: () => import('./pages/gestion/gestion.module').then( m => m.GestionPageModule)
   },
   {
-    path: 'consulta',
-    loadChildren: () => import('./pages/consulta/consulta.module').then( m => m.ConsultaPageModule)
-  },
-  {
-    path: 'creacion',
-    loadChildren: () => import('./pages/creacion/creacion.module').then( m => m.CreacionPageModule)
-  },
-  {
-    path: 'crear',
-    loadChildren: () => import('./pages/crear/crear.module').then( m => m.CrearPageModule)
+    path: 'servicios',
+    loadChildren: () => import('./pages/servicios/servicios.module').then( m => m.ServiciosPageModule)
   },
 ];
 
