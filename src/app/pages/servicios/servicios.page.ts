@@ -15,6 +15,11 @@ export class ServiciosPage implements OnInit {
     this.reportsService.getReports().subscribe( resp =>{
       console.log(resp.ReportesTotales[0]);
     })
+
+
+    this.reportsService.getReport('2123638940').subscribe (resp =>{
+      console.log(resp);
+    })
   }
 
 }

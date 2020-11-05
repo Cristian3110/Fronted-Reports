@@ -24,6 +24,12 @@ export class ReportsService {
     return this.http.get<RespuestaReports>(`${URL}/reportes/?pagina=${this.paginaReports}`);
   }
 
-  
+// Petición de los reportes por Abonado
+
+  getReport(id: string){
+    
+  return this.http.get<RespuestaReports>(`${URL}/reportes/consulta/${id}`);
+}
+
 
 }
