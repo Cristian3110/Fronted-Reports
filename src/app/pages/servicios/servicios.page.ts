@@ -13,7 +13,7 @@ export class ServiciosPage implements OnInit {
   ngOnInit() {
 
     this.reportsService.getReports().subscribe( resp =>{
-      console.log(resp);
+      console.log(resp.ReportesTotales[0]);
     })
   }
 
