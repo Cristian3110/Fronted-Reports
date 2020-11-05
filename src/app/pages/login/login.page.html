@@ -3,7 +3,7 @@
 
         <div class="header">
             <div class="title ion-text-center">
-                <img src="/assets/logoBlanco.png" alt="">
+                <img src="/assets/logo.png" alt="">
             </div>
         </div>
 
@@ -26,7 +26,7 @@
             <br>
             <div class="ion-text-center fade-in">
                 <ion-button class="green-button">
-                    Login
+                    Iniciar Sesión
                 </ion-button>
             </div>
 
@@ -36,8 +36,8 @@
 
             <div class="toggle-text ion-text-center" tappable (click)="toggleSignUpView()">
 
-                <span *ngIf="!signupView" [ngClass]="{'fade-in': !signupView, 'fade-out': signupView}">Sign Up</span>
-                <span *ngIf="signupView" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}">Login</span>
+                <span *ngIf="!signupView" [ngClass]="{'fade-in': !signupView, 'fade-out': signupView}">Regístrate</span>
+                <span *ngIf="signupView" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}">Iniciar Sesión</span>
                 <br>
                 <ion-icon name="arrow-round-up" *ngIf="!signupView" [ngClass]="{'fade-in': !signupView, 'fade-out': signupView}"></ion-icon>
                 <ion-icon name="arrow-round-down" *ngIf="signupView" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}"></ion-icon>
@@ -65,7 +65,7 @@
             <br>
             <div class="ion-text-center" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}">
                 <ion-button class="gray-button">
-                    Login
+                    Iniciar Sesión
                 </ion-button>
             </div>
 
