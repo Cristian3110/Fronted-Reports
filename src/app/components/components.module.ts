@@ -13,7 +13,6 @@ import { IonicModule } from '@ionic/angular';
   declarations: [
     FooterComponent,
     HeaderComponent,
-    FooterComponent,
     SlidesComponent,
     FormlineComponent,
     ForminterComponent

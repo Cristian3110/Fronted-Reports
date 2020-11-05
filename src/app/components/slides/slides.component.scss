@@ -4,21 +4,20 @@
 
 ion-content {
     // --background: #c7c7c7cc;
-    --background: #ebebeb;
+    --background: #013396;
 }
 
 ion-card {
     overflow: unset !important;
-    // background-color: #446BC1;
-    background: rgb(26, 2, 249);
-    background: linear-gradient(0deg, rgba(26, 2, 249, 0.577468487394958) 0%, rgba(249, 5, 5, 0.5830707282913166) 100%);
-    color: black;
+    background-color: rgba(255, 255, 255, 0.267);
+    color: rgb(255, 255, 255);
     border-radius: 40px;
-}
-
-ion-card {
     height: 550px; // altura
     width: 300px; // ancho
+}
+
+ion-card-title {
+    color: rgb(255, 255, 255);
 }
 
 .slide-image {
@@ -34,6 +33,7 @@ ion-card {
 ion-card-header {
     position: relative;
     top: -20px;
+    ;
 }
 
 ion-card-content {
@@ -42,7 +42,7 @@ ion-card-content {
 }
 
 ion-button {
-    color: black;
+    color: white;
     height: 100%;
     width: 100%;
     font-size: 20px;
