@@ -15,7 +15,7 @@ export class SlidesComponent implements OnInit {
       desc: 'Servicio para Reportar incidencia en tus servicios desde tu Móvil, fácil y rápido!! Ahorra tiempo en solucionar el problema con tu servicio'
     },
     {
-      img: '/assets/telephone.svg',
+      img: '/assets/telefono.svg',
       titulo: 'Reportes de Lineas Telefónicas',
       desc: 'Tienes alguna falla en tu servicio de línea telefónica de CANTV? Por aqui puedes reportar tu incidencia de manera fácil, rápida y segura!!'
     },
