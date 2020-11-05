@@ -1,9 +1,75 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
+    <div class="sign-container gradient-1">
 
+        <div class="header">
+            <div class="title ion-text-center">
+                <img src="/assets/logoBlanco.png" alt="">
+            </div>
+        </div>
+
+        <div class="login-container">
+
+            <ion-list lines="none" class="form fade-in">
+                <ion-item>
+                    <ion-label>Email</ion-label>
+                    <ion-input></ion-input>
+                    <ion-icon name="at-outline"></ion-icon>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Password</ion-label>
+                    <ion-input type="password"></ion-input>
+                    <ion-icon name="key-outline"></ion-icon>
+                </ion-item>
+            </ion-list>
+            <br>
+            <br>
+            <br>
+            <div class="ion-text-center fade-in">
+                <ion-button class="green-button">
+                    Login
+                </ion-button>
+            </div>
+
+        </div>
+
+        <div class="sign-up-container gradient-2" [ngClass]="{'active': signupView}">
+
+            <div class="toggle-text ion-text-center" tappable (click)="toggleSignUpView()">
+
+                <span *ngIf="!signupView" [ngClass]="{'fade-in': !signupView, 'fade-out': signupView}">Sign Up</span>
+                <span *ngIf="signupView" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}">Login</span>
+                <br>
+                <ion-icon name="arrow-round-up" *ngIf="!signupView" [ngClass]="{'fade-in': !signupView, 'fade-out': signupView}"></ion-icon>
+                <ion-icon name="arrow-round-down" *ngIf="signupView" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}"></ion-icon>
+
+            </div>
+
+            <ion-list lines="none" class="form" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}">
+                <ion-item>
+                    <ion-label>Name</ion-label>
+                    <ion-input></ion-input>
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Email</ion-label>
+                    <ion-input></ion-input>
+                    <ion-icon name="at"></ion-icon>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Password</ion-label>
+                    <ion-input type="password"></ion-input>
+                    <ion-icon name="key-outline"></ion-icon>
+                </ion-item>
+            </ion-list>
+            <br>
+            <br>
+            <div class="ion-text-center" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}">
+                <ion-button class="gray-button">
+                    Login
+                </ion-button>
+            </div>
+
+        </div>
+
+    </div>
 </ion-content>

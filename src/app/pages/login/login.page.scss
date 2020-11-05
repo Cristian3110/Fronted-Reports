@@ -1,0 +1,116 @@
+.sign-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    .header {
+        flex: 1;
+        .title {
+            padding-top: 70px;
+            img {
+                width: 250px;
+            }
+        }
+    }
+    .login-container {
+        flex: 2
+    }
+    .form {
+        --background: none;
+        background: none;
+        max-width: 320px;
+        margin: 0 auto;
+        ion-item {
+            --background: #ffffff86;
+            --border-radius: 15px;
+            --border-color: transparent !important;
+            --highlight-height: 0;
+            color: #0b0168;
+            margin-bottom: 10px;
+            .icon-inner {
+                color: #0b0168;
+            }
+        }
+    }
+    .sign-up-container {
+        position: absolute;
+        bottom: 0;
+        height: 70px;
+        width: 100%;
+        padding-top: 20px;
+        transition: all 1s;
+        //border-radius: 85% 85% 0 0 / 30%;
+        overflow: hidden;
+        &.active {
+            height: calc(100% - 220px);
+        }
+        .toggle-text {
+            color: #000057;
+            font-size: 16px;
+            margin-bottom: 60px;
+        }
+        .form {
+            ion-item {
+                --background: #0b0069a6;
+            }
+        }
+    }
+}
+
+ion-icon {
+    color: #1a237e;
+}
+
+.gradient-1 {
+    background: #1a237e;
+    //background: linear-gradient(90deg, rgba(21, 5, 167, 1) 0%, rgba(153, 19, 19, 1) 55%, rgba(255, 0, 26, 1) 100%);
+}
+
+.gradient-2 {
+    --background: rgb(255, 255, 255);
+    background: linear-gradient(0deg, rgba(255, 255, 255) 0%, rgba(250, 250, 250) 100%);
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.green-button {
+    --background: white;
+    color: #1a237e;
+    --border-radius: 15px;
+    height: 50px;
+    width: 150px;
+}
+
+.gray-button {
+    --background: #1a237e;
+    color: white;
+    --border-radius: 15px;
+    height: 50px;
+    width: 150px;
+}
+
+.fade-in {
+    animation: fadein 2s;
+}
+
+.fade-out {
+    animation: fadeout 1s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}

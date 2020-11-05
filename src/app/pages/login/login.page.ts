@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginPage implements OnInit {
 
+  signupView: boolean = false;
+
   constructor() { }
 
   ngOnInit() {
   }
+
+  toggleSignUpView () {
+    this.signupView = !this.signupView
+  };
 
 }
