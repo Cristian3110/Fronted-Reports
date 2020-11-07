@@ -16,19 +16,20 @@
                         <ion-input inputmode="text" type="email" formControlName="email" [class.is-invalid]="emailNoValido"></ion-input>
                         <ion-icon name="at-outline"></ion-icon>
                     </ion-item>
-                    <small class="ion-padding ion-color=ion-color-danger" *ngIf="emailNoValido">Ingrese un email correcto</small>
+                    <small class="ion-padding" *ngIf="emailNoValido">Ingrese un email correcto</small>
 
                     <ion-item>
                         <ion-label>Password</ion-label>
-                        <ion-input type="password"></ion-input>
+                        <ion-input type="password" formControlName="password" [class.is-invalid]="passwordNoValido"></ion-input>
                         <ion-icon name="key-outline"></ion-icon>
                     </ion-item>
+                    <small class="ion-padding" *ngIf="passwordNoValido">Ingrese un Password correcto</small>
                 </ion-list>
                 <br>
                 <br>
                 <br>
                 <div class="ion-text-center fade-in">
-                    <ion-button class="green-button">
+                    <ion-button class="green-button" [disabled]="forma.invalid" type="submit">
                         Iniciar Sesión
                     </ion-button>
                 </div>

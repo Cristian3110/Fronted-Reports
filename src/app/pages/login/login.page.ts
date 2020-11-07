@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsuarioService } from '../../services/usuario.service';
+import { NavController } from '@ionic/angular';
+import { UiServiceService } from '../../services/ui-service.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +15,10 @@ export class LoginPage implements OnInit {
 
   forma: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder,
+              private usuarioService: UsuarioService,
+              private navCtrl: NavController,
+              private uiService:UiServiceService) {
 
     this.crearFormulario();
    }
@@ -54,7 +60,7 @@ export class LoginPage implements OnInit {
     }else{
       //mostrar alerta de usuario y contraseña no son correctos
       this.uiService.alertaInformativa(
-        'usuario y constraseña no son correctos'
+        'Usuario y Constraseña no son correctos'
       );
     }
 
