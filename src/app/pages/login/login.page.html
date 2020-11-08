@@ -56,7 +56,8 @@
                         <ion-input inputmode="text" type="name" formControlName="name1" [class.is-invalid]="nameNoValido2"></ion-input>
                         <ion-icon name="person-circle-outline"></ion-icon>
                     </ion-item>
-                    <small class="ion-padding" *ngIf="nameNoValido2">Ingrese un email correcto</small>
+                    <small class="ion-padding" *ngIf="nameNoValido2">Ingresa un nombre de al menos 4 letras</small>
+
                     <ion-item>
                         <ion-label>Email</ion-label>
                         <ion-input inputmode="text" type="email" formControlName="email2" [class.is-invalid]="emailNoValido2"></ion-input>
