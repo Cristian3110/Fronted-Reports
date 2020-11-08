@@ -12,14 +12,16 @@ export class ServiciosPage implements OnInit {
 
   ngOnInit() {
 
-    this.reportsService.getReports().subscribe( resp =>{
-      console.log(resp.ReportesTotales[0]);
-    })
+    // EN CASO DE QUE QUERAMOS LA COLECCIÓN DE REPORTES QUE SE HAN GENERADO EN NUESTRO SERVICIO 
+
+    // this.reportsService.getReports().subscribe( resp =>{
+    //   console.log(resp.ReportesTotales);
+    // })
 
 
-    this.reportsService.getReport('2123638940').subscribe (resp =>{
-      console.log(resp);
-    })
+    // this.reportsService.getReport('2123638940').subscribe (resp =>{
+    //   console.log(resp);
+    // })
   }
 
 }

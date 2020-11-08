@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { RespuestaReports } from '../pages/servicios/interfaces/interfaces';
+import { RespuestaReportes, Reporte } from '../interfaces/interfaces';
 
 
 const URL = environment.url;
@@ -21,14 +21,14 @@ export class ReportsService {
   getReports(){
 
     this.paginaReports ++;
-    return this.http.get<RespuestaReports>(`${URL}/reportes/?pagina=${this.paginaReports}`);
+    return this.http.get<RespuestaReportes>(`${URL}/reportes/?pagina=${this.paginaReports}`);
   }
 
 // Petición de los reportes por Abonado
 
   getReport(id: string){
     
-  return this.http.get<RespuestaReports>(`${URL}/reportes/consulta/${id}`);
+  return this.http.get<Reporte>(`${URL}/reportes/consulta/${id}`);
 }
 
 

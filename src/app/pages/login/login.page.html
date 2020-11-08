@@ -9,7 +9,7 @@
 
         <div class="login-container">
 
-            <form [formGroup]="forma" (ngSubmit)="loginForm($event)">
+            <form [formGroup]="forma" novalidate (ngSubmit)="loginForm($event)">
                 <ion-list lines="none" class="form fade-in">
                     <ion-item>
                         <ion-label>Email</ion-label>
@@ -48,31 +48,36 @@
 
             </div>
 
-            <ion-list lines="none" class="form" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}">
-                <ion-item>
-                    <ion-label>Name</ion-label>
-                    <ion-input></ion-input>
-                    <ion-icon name="person-circle-outline"></ion-icon>
-                </ion-item>
-                <ion-item>
-                    <ion-label>Email</ion-label>
-                    <ion-input></ion-input>
-                    <ion-icon name="at"></ion-icon>
-                </ion-item>
-                <ion-item>
-                    <ion-label>Password</ion-label>
-                    <ion-input type="password"></ion-input>
-                    <ion-icon name="key-outline"></ion-icon>
-                </ion-item>
-            </ion-list>
-            <br>
-            <br>
-            <div class="ion-text-center" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}">
-                <ion-button class="gray-button">
-                    Iniciar Sesión
-                </ion-button>
-            </div>
-
+            <!-- A partir de aqui el formulario de crear  -->
+            <form [formGroup]="forma2" novalidate (ngSubmit)="registerForm($event)">
+                <ion-list lines="none" class="form" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}">
+                    <ion-item>
+                        <ion-label>Name</ion-label>
+                        <ion-input inputmode="text" type="name" formControlName="name1" [class.is-invalid]="nameNoValido2"></ion-input>
+                        <ion-icon name="person-circle-outline"></ion-icon>
+                    </ion-item>
+                    <small class="ion-padding" *ngIf="nameNoValido2">Ingrese un email correcto</small>
+                    <ion-item>
+                        <ion-label>Email</ion-label>
+                        <ion-input inputmode="text" type="email" formControlName="email2" [class.is-invalid]="emailNoValido2"></ion-input>
+                        <ion-icon name="at"></ion-icon>
+                    </ion-item>
+                    <small class="ion-padding" *ngIf="emailNoValido2">Ingrese un email correcto</small>
+                    <ion-item>
+                        <ion-label>Password</ion-label>
+                        <ion-input type="password" formControlName="password2" [class.is-invalid]="passwordNoValido2"></ion-input>
+                        <ion-icon name="key-outline"></ion-icon>
+                    </ion-item>
+                    <small class="ion-padding" *ngIf="passwordNoValido2">Ingrese un Password correcto</small>
+                </ion-list>
+                <br>
+                <br>
+                <div class="ion-text-center" [ngClass]="{'fade-in': signupView, 'fade-out': !signupView}">
+                    <ion-button class="gray-button" [disabled]="forma2.invalid" type="submit">
+                        Iniciar Sesión
+                    </ion-button>
+                </div>
+            </form>
         </div>
 
     </div>
