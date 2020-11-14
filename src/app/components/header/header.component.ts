@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { UsuarioService } from '../../services/usuario.service';
 
 @Component({
   selector: 'app-header',
@@ -9,8 +10,13 @@ export class HeaderComponent implements OnInit {
 
   @Input() titulo: string;
 
-  constructor() { }
+  constructor( private usuarioService: UsuarioService) { }
 
   ngOnInit() {}
 
+
+  logout(){
+    console.log('logout');
+    this.usuarioService.logout();
+  }
 }
