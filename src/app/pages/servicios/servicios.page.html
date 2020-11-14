@@ -3,8 +3,48 @@
 
 <ion-content class="transparent">
 
+    <div>
+        <ion-img class="logo" src="/assets/logo.png"></ion-img>
+    </div>
+    <ion-slides pager="true">
 
+        <ion-slide *ngFor="let slide of slides">
+
+            <ion-card mode="ios">
+
+                <img [src]="slide.img" class="slide-image">
+
+                <ion-card-header>
+                    <ion-card-title class="ion-text-uppercase"> {{ slide.titulo }} </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content class="ion-text-center">
+                    <h2>
+                        {{ slide.desc }}
+                    </h2>
+
+                </ion-card-content>
+
+
+            </ion-card>
+
+        </ion-slide>
+    </ion-slides>
+    <br>
+    <br>
+    <div>
+
+        <div class="ion-text-center fade-in">
+            <ion-button type="button">
+                <ion-icon slot="start" name="call-outline"></ion-icon>
+                Linea
+            </ion-button>
+            <ion-button type="button">
+                <ion-icon slot="start" name="laptop-outline"></ion-icon>
+                Internet
+            </ion-button>
+        </div>
+    </div>
 </ion-content>
-
 
 <app-footer></app-footer>
