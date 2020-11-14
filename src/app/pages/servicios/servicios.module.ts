@@ -6,14 +6,17 @@ import { IonicModule } from '@ionic/angular';
 
 import { ServiciosPageRoutingModule } from './servicios-routing.module';
 
+
 import { ServiciosPage } from './servicios.page';
+import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ServiciosPageRoutingModule
+    ServiciosPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [ServiciosPage]
 })
