@@ -1,9 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>linea</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header titulo="Reporte de Linea"></app-header>
 
-<ion-content>
+<ion-content class="transparent">
 
+
+
+    <div>
+        <div class="ion-text-center fade-in">
+            <ion-button type="button" routerLink="/linea">
+                <ion-icon slot="start" name="call-outline"></ion-icon>
+                Linea
+            </ion-button>
+
+            <ion-button type="button" routerLink="/internet">
+                <ion-icon slot="start" name="laptop-outline"></ion-icon>
+                Internet
+            </ion-button>
+        </div>
+    </div>
 </ion-content>
+
+<app-footer></app-footer>

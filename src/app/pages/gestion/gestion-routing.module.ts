@@ -9,12 +9,12 @@ const routes: Routes = [
     component: GestionPage
   },
   {
-    path: 'crear',
-    loadChildren: () => import('../crear/crear.module').then( m => m.CrearPageModule)
-  },
-  {
     path: 'consulta',
     loadChildren: () => import('../consulta/consulta.module').then( m => m.ConsultaPageModule)
+  },
+  {
+    path: 'servicios',
+    loadChildren: () => import('../servicios/servicios.module').then( m => m.ServiciosPageModule)
   },
 ];
 

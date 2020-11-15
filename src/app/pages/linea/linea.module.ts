@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { LineaPageRoutingModule } from './linea-routing.module';
 
 import { LineaPage } from './linea.page';
+import { ComponentsModule } from 'src/app/components/components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LineaPageRoutingModule
+    LineaPageRoutingModule,
+    ComponentsModule
   ],
   declarations: [LineaPage]
 })
