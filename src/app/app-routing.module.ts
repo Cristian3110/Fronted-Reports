@@ -19,10 +19,8 @@ const routes: Routes = [
     path: 'gestion',
     loadChildren: () => import('./pages/gestion/gestion.module').then( m => m.GestionPageModule)
   },
-  {
-    path: 'servicios',
-    loadChildren: () => import('./pages/servicios/servicios.module').then( m => m.ServiciosPageModule)
-  },
+ 
+  
 ];
 
 @NgModule({

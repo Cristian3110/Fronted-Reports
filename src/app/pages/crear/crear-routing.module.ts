@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: CrearPage
-  }
+  },
+  {
+    path: 'servicios',
+    loadChildren: () => import('../servicios/servicios.module').then( m => m.ServiciosPageModule)
+  },
 ];
 
 @NgModule({

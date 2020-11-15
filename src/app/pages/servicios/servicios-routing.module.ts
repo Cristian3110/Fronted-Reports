@@ -8,15 +8,14 @@ const routes: Routes = [
     path: '',
     component: ServiciosPage
   },
-  {
-    path: 'crear',
-    loadChildren: () => import('../crear/crear.module').then( m => m.CrearPageModule)
+    {
+    path: 'linea',
+    loadChildren: () => import('../linea/linea.module').then( m => m.LineaPageModule)
   },
   {
-    path: 'consulta',
-    loadChildren: () => import('../consulta/consulta.module').then( m => m.ConsultaPageModule)
+    path: 'internet',
+    loadChildren: () => import('../internet/internet.module').then( m => m.InternetPageModule)
   },
-  
 ];
 
 @NgModule({
