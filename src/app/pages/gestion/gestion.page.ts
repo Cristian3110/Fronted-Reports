@@ -9,14 +9,14 @@ export class GestionPage implements OnInit {
 
   slides: { img: string, titulo: string, desc: string }[] = [
     {
-      img: '/assets/phone.svg',
-      titulo: 'Reportes de Lineas Telefónicas',
-      desc: 'Seleccionando en el botón de LINEA, puedes consultar o crear tu reporte'
+      img: '/assets/buscar.svg',
+      titulo: 'Consulta de Reportes',
+      desc: 'Seleccionando en el botón de CONSULTA, puedes consultar (buscar) un reporte ya creado'
     },
     {
-      img: '/assets/network.svg',
-      titulo: 'Reportes de Internet Aba',
-      desc: 'Seleccionando en el botón de INTERNET, puedes consultar o crear tu reporte'
+      img: '/assets/crear.svg',
+      titulo: 'Creación de Reportes',
+      desc: 'Seleccionando en el botón de CREAR, puedes crear tu reporte de Linea o de Internet Aba'
     }
   ];
 
