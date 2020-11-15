@@ -5,6 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { SlidesComponent } from './slides/slides.component';
 import { FormlineComponent } from './formline/formline.component';
 import { ForminterComponent } from './forminter/forminter.component';
+import { HeaderPrincipalComponent } from './header-principal/header-principal.component';
 import { IonicModule } from '@ionic/angular';
 
 
@@ -15,7 +16,8 @@ import { IonicModule } from '@ionic/angular';
     HeaderComponent,
     SlidesComponent,
     FormlineComponent,
-    ForminterComponent
+    ForminterComponent,
+    HeaderPrincipalComponent
     ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { IonicModule } from '@ionic/angular';
     FooterComponent,
     SlidesComponent,
     FormlineComponent,
-    ForminterComponent
+    ForminterComponent,
+    HeaderPrincipalComponent
   ]
 })
 export class ComponentsModule { }
