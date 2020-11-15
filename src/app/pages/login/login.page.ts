@@ -88,7 +88,7 @@ export class LoginPage implements OnInit {
     
     if(valido){
       // navegar a la pantalla siguiente con el navCtrl no se puede devolver hasta que se loguee
-      this.navCtrl.navigateRoot('/servicios', {animated:true});
+      this.navCtrl.navigateRoot('/gestion', {animated:true});
     }else{
       //mostrar alerta de usuario y contraseña no son correctos
       this.uiService.alertaInformativa(
