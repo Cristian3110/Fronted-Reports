@@ -27,14 +27,14 @@
             <small class="ion-padding" *ngIf="tlfContactoNoValido">Ingrese un número de teléfono correcto</small>
             <br>
             <ion-item>
-                <ion-label>Falla</ion-label>
+                <ion-label position="floating">Falla</ion-label>
                 <ion-select formControlName="falla" [class.is-invalid]="fallaNoValido" interface="alert" value="blonde" okText="Seleccionar" cancelText="Cancelar">
                     <ion-select-option *ngFor=" let falla of fallas">{{falla}}</ion-select-option>
                 </ion-select>
             </ion-item>
             <br>
             <ion-item>
-                <ion-label>Tipo de Falla</ion-label>
+                <ion-label position="floating">Tipo de Falla</ion-label>
                 <ion-select formControlName="tipoFalla" [class.is-invalid]="tipoFallaNoValido" interface="action-sheet" value="brown" okText="Seleccionar" cancelText="Cancelar">
                     <ion-select-option *ngFor=" let fallas of tipoFallas">{{fallas}}</ion-select-option>
                 </ion-select>
