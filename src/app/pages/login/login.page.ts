@@ -78,7 +78,7 @@ export class LoginPage implements OnInit {
 
   async loginForm(event: Event){
 
-    event.preventDefault
+    event.preventDefault();
 
     const datos = this.forma.value;
     console.log(this.forma.valid);
@@ -121,4 +121,4 @@ export class LoginPage implements OnInit {
 
   };
 
-}
+};

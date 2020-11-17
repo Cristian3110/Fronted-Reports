@@ -1,3 +1,54 @@
-<p>
-  formline works!
-</p>
+<div class="formLine">
+
+    <form [formGroup]="FormLine" novalidate (ngSubmit)="reportLine($event)">
+        <ion-list lines="none" class="form fade-in">
+            <ion-item>
+                <ion-label position="floating">Persona que Reporta</ion-label>
+                <ion-input inputmode="text" type="name" formControlName="name" [class.is-invalid]="nameNoValido"></ion-input>
+            </ion-item>
+            <small class="ion-padding" *ngIf="nameNoValido">Ingresa un nombre de al menos 4 letras</small>
+
+            <ion-item>
+                <ion-label position="floating">Número a Reportar</ion-label>
+                <ion-input inputmode="number" type="number" formControlName="abonado" [class.is-invalid]="abonadoNoValido"></ion-input>
+            </ion-item>
+            <small class="ion-padding" *ngIf="abonadoNoValido">Ingrese un número de teléfono correcto</small>
+
+            <ion-item>
+                <ion-label position="floating">Correro Electrónico</ion-label>
+                <ion-input inputmode="text" type="email" formControlName="email" [class.is-invalid]="emailNoValido"></ion-input>
+            </ion-item>
+            <small class="ion-padding" *ngIf="emailNoValido">Ingrese un email correcto</small>
+
+            <ion-item>
+                <ion-label position="floating">Teléfono de Contacto</ion-label>
+                <ion-input inputmode="number" type="number" formControlName="tlfContacto" [class.is-invalid]="tlfContactoNoValido"></ion-input>
+            </ion-item>
+            <small class="ion-padding" *ngIf="tlfContactoNoValido">Ingrese un número de teléfono correcto</small>
+
+            <ion-item>
+                <ion-label>Falla</ion-label>
+                <ion-select formControlName="falla" [class.is-invalid]="fallaNoValido" interface="alert" value="blonde" okText="Seleccionar" cancelText="Cancelar">
+                    <ion-select-option *ngFor=" let falla of fallas">{{falla}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item>
+                <ion-label>Tipo de Falla</ion-label>
+                <ion-select formControlName="tipoFalla" [class.is-invalid]="tipoFallaNoValido" interface="action-sheet" value="brown" okText="Seleccionar" cancelText="Cancelar">
+                    <ion-select-option *ngFor=" let fallas of tipoFallas">{{fallas}}</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+
+        </ion-list>
+        <br>
+        <br>
+        <br>
+        <div class="ion-text-center fade-in">
+            <ion-button class="green-button" [disabled]="FormLine.invalid" type="submit">
+                crear reporte
+            </ion-button>
+        </div>
+    </form>
+</div>
