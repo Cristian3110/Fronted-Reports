@@ -5,6 +5,11 @@ import { ReportsService } from '../../services/reports.service';
 
 
 
+
+
+
+
+
 @Component({
   selector: 'app-formline',
   templateUrl: './formline.component.html',
@@ -74,16 +79,18 @@ export class FormlineComponent implements OnInit {
   crearFormulario(){
 
     this.FormLine = this.formBuilder.group({
-      name: ['', Validators.required],
-      abonado: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      email:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$')]],
-      tlfContacto:['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      name: ['prueba', Validators.required],
+      abonado: ['2123638940', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      email:['cantv@cantv.com.ve',[Validators.required, Validators.pattern('^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$')]],
+      tlfContacto:['4142565689', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       falla:['', Validators.required],
       tipoFalla:['',Validators.required]
     });
   }
 
    reportLine(event: Event){
+
+      if(this.FormLine.invalid){return;}
 
       event.preventDefault();
 
@@ -92,23 +99,27 @@ export class FormlineComponent implements OnInit {
       console.log(this.FormLine.value);
 
 
-      const postReport = this.reportsService.crearReportsLine(datos.name,
+      const valido = this.reportsService.crearReportsLine(datos._id, datos.name,
                                                       datos.abonado, 
                                                       datos.email, 
                                                       datos.tlfContacto, 
                                                       datos.falla, 
-                                                      datos.tipoFalla);  
+                                                      datos.tipoFalla)
+                .subscribe((resp:any) =>{
+                  console.log(resp);
+                  
+
+                    this.uiService.alertaInformativa(`Su reporte con número de abonado: ${resp.abonado} 
+                                                      se ha generado correctamente con el número: ${resp._id}`);
+                 
+
+                })  
         
-          if (this.FormLine.valid){
-            console.log(postReport)
-          }else{
-            console.log('Ya este abonado tiene un reporte creado')
-          };
-
-
+              
+         
           this.FormLine.reset();
       
-          console.log(postReport);
+          
      
 
 

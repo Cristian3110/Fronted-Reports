@@ -1,10 +1,11 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { RespuestaReportes, Reporte } from '../interfaces/interfaces';
+import { Reporte, RespuestaReportes } from '../interfaces/interfaces';
 import { UsuarioService } from './usuario.service';
 
 
+import {map} from 'rxjs/operators'
 
 const URL = environment.url;
 
@@ -35,35 +36,42 @@ export class ReportsService {
   getReport(id: string){
     
   return this.http.get<Reporte>(`${URL}/reportes/consulta/${id}`);
+
   }
   
   
   
-  crearReportsLine(nombre: string,
+  crearReportsLine(_id: string, nombre: string,
          abonado: number,
          email:string, 
          tlfContacto: number,
          falla: string,
          tipoFalla: string){
   
-           const data = {nombre, abonado, email, tlfContacto, falla, tipoFalla};
+           const data = {_id, nombre, abonado, email, tlfContacto, falla, tipoFalla};
             
           const headers = new HttpHeaders({
               'x-token': this.usuarioService.token
 
             });
 
-             this.http.post<Reporte>(`${URL}/reportes`, data, {headers})
-                 .subscribe(resp=>{
-                   console.log(resp); // solo para visualizar que se esta creando el reporte
+            return this.http.post<Reporte>(`${URL}/reportes`, data, {headers})
+                   .pipe(
+                     map( (resp:any) =>{
+                       data._id = resp.reporte;
+                       return data._id;
+                     })
+                   )
+                //  .subscribe(resp=>{
+                //    console.log(resp); // solo para visualizar que se esta creando el reporte
                   
-                 })
+                //  });
                 
                 
                
 
 
-           }
+           };
                               
 
 }
