@@ -6,10 +6,6 @@ import { ReportsService } from '../../services/reports.service';
 
 
 
-
-
-
-
 @Component({
   selector: 'app-formline',
   templateUrl: './formline.component.html',
