@@ -75,10 +75,10 @@ export class FormlineComponent implements OnInit {
   crearFormulario(){
 
     this.FormLine = this.formBuilder.group({
-      name: ['prueba', Validators.required],
-      abonado: ['2123638940', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      email:['cantv@cantv.com.ve',[Validators.required, Validators.pattern('^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$')]],
-      tlfContacto:['4142565689', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      name: ['', Validators.required],
+      abonado: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      email:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$')]],
+      tlfContacto:['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       falla:['', Validators.required],
       tipoFalla:['',Validators.required]
     });

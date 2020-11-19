@@ -16,7 +16,7 @@ export class GestionPage implements OnInit {
     {
       img: '/assets/crear.svg',
       titulo: 'Creación de Reportes',
-      desc: 'Seleccionando en el botón de CREAR, puedes crear tu reporte de Linea o de Internet Aba'
+      desc: 'Seleccionando en el botón de CREAR, puedes generar tu reporte de Linea o de Internet Aba'
     }
   ];
 

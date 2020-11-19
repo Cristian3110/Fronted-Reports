@@ -12,12 +12,12 @@ export class ServiciosPage implements OnInit {
     {
       img: '/assets/phone.svg',
       titulo: 'Reportes de Lineas Telefónicas',
-      desc: 'Seleccionando en el botón de LINEA, puedes consultar o crear tu reporte'
+      desc: 'Seleccionando en el botón de LINEA, puedes CREAR el reporte para la atención de tu incidencia de Linea Telefónica'
     },
     {
       img: '/assets/network.svg',
       titulo: 'Reportes de Internet Aba',
-      desc: 'Seleccionando en el botón de INTERNET, puedes consultar o crear tu reporte'
+      desc: 'Seleccionando en el botón de INTERNET, puedes CREAR tu reporte para la atención de tu incidencia de Internet Aba'
     }
   ];
 
