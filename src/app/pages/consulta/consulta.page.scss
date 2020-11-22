@@ -1,0 +1,38 @@
+ion-content {
+    --background: #1a237e;
+    ion-img {
+        width: 250px;
+        align-items: center;
+    }
+    .logo {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        margin-top: 40px;
+    }
+    ion-button {
+        --background: rgb(255, 255, 255);
+        color: #1a237e;
+        --border-radius: 15px;
+        height: 50px;
+        width: 150px;
+    }
+    img {
+        width: 100px;
+    }
+    ion-card {
+        overflow: unset !important;
+        background: transparent;
+        color: rgb(255, 255, 255);
+        border-radius: 40px;
+        height: auto; // altura
+        width: auto; // ancho
+    }
+    ion-card-title {
+        color: white;
+    }
+}
+
+ion-toast {
+    --background: green;
+}

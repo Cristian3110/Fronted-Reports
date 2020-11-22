@@ -1,9 +1,39 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>consulta</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-header titulo="consulta"></app-header>
 
 <ion-content>
+    <div>
+        <ion-img class="logo" src="/assets/logo.png"></ion-img>
+    </div>
+
+    <ion-slides pager="true">
+
+        <ion-slide *ngFor="let slide of slides">
+
+            <ion-card mode="ios">
+
+                <img [src]="slide.img" class="slide-image">
+
+                <ion-card-header>
+                    <ion-card-title class="ion-text-uppercase"> {{ slide.titulo }} </ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content class="ion-text-center">
+                    <h2>
+                        {{ slide.desc }}
+                    </h2>
+                </ion-card-content>
+            </ion-card>
+        </ion-slide>
+    </ion-slides>
+
+    <ion-buttons>
+        <ion-button>mensaje</ion-button>
+    </ion-buttons>
+
 
 </ion-content>
+
+
+
+
+<app-footer></app-footer>

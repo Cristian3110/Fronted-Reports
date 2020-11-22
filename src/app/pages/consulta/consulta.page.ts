@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
+
 @Component({
   selector: 'app-consulta',
   templateUrl: './consulta.page.html',
@@ -7,9 +10,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultaPage implements OnInit {
 
-  constructor() { }
+  slides: { img: string, titulo: string, desc: string }[] = [
+    {
+      img: '/assets/buscar.svg',
+      titulo: 'Consulta de Reportes',
+      desc: 'Seleccionando en el botón de CONSULTA, puedes consultar (buscar) un reporte ya creado'
+    },
+    {
+      img: '/assets/crear.svg',
+      titulo: 'Creación de Reportes',
+      desc: 'Seleccionando en el botón de CREAR, puedes generar tu reporte de Linea o de Internet Aba'
+    }
+  ];
+
+  constructor( ) { }
 
   ngOnInit() {
   }
+
+
+
+
+ 
 
 }

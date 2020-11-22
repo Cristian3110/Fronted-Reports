@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { ReportsService } from '../../services/reports.service';
+import { ToastController } from '@ionic/angular';
 
 
 
@@ -31,7 +32,8 @@ export class ForminterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private reportsService: ReportsService,
-              private uiService: UiServiceService) {
+              private uiService: UiServiceService,
+              private toastCtrl: ToastController) {
 
                 this.crearFormulario();
                }
@@ -76,6 +78,19 @@ export class ForminterComponent implements OnInit {
   }
 
 
+  async presentToast(message: string) {
+    const toast = await this.toastCtrl.create({
+      message: message,
+      duration: 10000,
+      color: 'dark',
+      animated: true,
+      mode: "ios",
+       
+    });
+    toast.present();
+  }
+
+
   reportLine(event: Event){
 
     if(this.FormInter.invalid){return;}
@@ -96,10 +111,16 @@ export class ForminterComponent implements OnInit {
               .subscribe((resp:any) =>{
                 console.log(resp);
                 
+              if(valido){
 
-                  this.uiService.alertaInformativa(`Su reporte con número de abonado: ${resp.abonado} 
-                                                    se ha generado correctamente con el número: ${resp._id}`);
-               
+                this.presentToast(`Su reporte con número de abonado: ${resp.abonado} se ha generado correctamente bajo el código: ${resp._id}`);
+
+              } else {
+                
+                this.presentToast(' Este número de abonado ya tiene un reporte creado, pruebe en la paǵina de consulta');
+              }
+
+
 
               })  
       
