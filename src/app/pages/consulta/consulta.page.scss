@@ -1,14 +1,14 @@
 ion-content {
     --background: #1a237e;
     ion-img {
-        width: 250px;
+        width: 200px;
         align-items: center;
     }
     .logo {
         margin-left: auto;
         margin-right: auto;
         display: block;
-        margin-top: 40px;
+        margin-top: 15px;
     }
     ion-button {
         --background: rgb(255, 255, 255);
@@ -17,22 +17,36 @@ ion-content {
         height: 50px;
         width: 150px;
     }
-    img {
-        width: 100px;
-    }
     ion-card {
-        overflow: unset !important;
         background: transparent;
-        color: rgb(255, 255, 255);
-        border-radius: 40px;
-        height: auto; // altura
-        width: auto; // ancho
+        //background-color: rgba(255, 255, 255, 0.308);
+        margin-left: 50px;
+        margin-right: 50px;
+        width: auto;
+        color: white;
+        .imgCard {
+            height: 110px;
+            width: auto;
+            align-items: center;
+        }
+        ion-card-title {
+            color: white;
+        }
     }
-    ion-card-title {
+    ion-item {
+        --background: #fbfcff50;
+        --highlight-color-valid: #00a700;
+        --highlight-color-invalid: #e71313;
+        border-radius: 20px;
+        color: white;
+        width: 180px;
+        height: auto;
+        align-content: center;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    small {
         color: white;
     }
-}
-
-ion-toast {
-    --background: green;
 }

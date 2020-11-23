@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UiServiceService } from 'src/app/services/ui-service.service';
 import { ReportsService } from '../../services/reports.service';
 import { ToastController } from '@ionic/angular';
-import { reduce } from 'rxjs/operators';
+
 
 
 

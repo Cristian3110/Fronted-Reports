@@ -5,30 +5,40 @@
         <ion-img class="logo" src="/assets/logo.png"></ion-img>
     </div>
 
-    <ion-slides pager="true">
+    <ion-card mode="ios">
+        <ion-img class="imgCard" src="/assets/consultar.svg"></ion-img>
+        <ion-card-header class="ion-text-center">
+            <ion-card-title>Consulta de Avería</ion-card-title>
+        </ion-card-header>
 
-        <ion-slide *ngFor="let slide of slides">
+        <ion-card-content class="ion-text-center">
+            <h2>
+                Introduzca el número de teléfono asociado a su avería con su respectivo código de área, para consultar su ticket
+            </h2>
+        </ion-card-content>
+    </ion-card>
 
-            <ion-card mode="ios">
+    <div>
+        <form>
+            <ion-item>
+                <ion-label position="floating">Número a Consultar</ion-label>
+                <ion-input type="number" [formControl]="abonado"></ion-input>
+            </ion-item>
+            <div class="ion-text-center" *ngIf="abonado.errors && abonado.touched">
+                <small *ngIf="abonado.hasError('required')">El número es requerido</small>
+                <small *ngIf="abonado.hasError('pattern')">coloca un número correcto</small>
+            </div>
 
-                <img [src]="slide.img" class="slide-image">
+        </form>
 
-                <ion-card-header>
-                    <ion-card-title class="ion-text-uppercase"> {{ slide.titulo }} </ion-card-title>
-                </ion-card-header>
+    </div>
 
-                <ion-card-content class="ion-text-center">
-                    <h2>
-                        {{ slide.desc }}
-                    </h2>
-                </ion-card-content>
-            </ion-card>
-        </ion-slide>
-    </ion-slides>
+    <br>
+    <div class="ion-text-center fade-in">
 
-    <ion-buttons>
-        <ion-button>mensaje</ion-button>
-    </ion-buttons>
+        <ion-button [disabled]="abonado.invalid" type="button" (click)="queryAbonado($event)">Consultar</ion-button>
+
+    </div>
 
 
 </ion-content>

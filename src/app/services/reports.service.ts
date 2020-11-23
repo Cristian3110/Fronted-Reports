@@ -33,7 +33,7 @@ export class ReportsService {
   
   // Petición de los reportes por Abonado
   
-  getReport(id: string){
+  getReport(id: number){
     
   return this.http.get<Reporte>(`${URL}/reportes/consulta/${id}`);
 

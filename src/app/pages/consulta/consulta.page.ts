@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ReportsService } from '../../services/reports.service';
+import { Validators, FormControl } from '@angular/forms';
+
 
 
 
@@ -10,27 +13,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConsultaPage implements OnInit {
 
-  slides: { img: string, titulo: string, desc: string }[] = [
-    {
-      img: '/assets/buscar.svg',
-      titulo: 'Consulta de Reportes',
-      desc: 'Seleccionando en el botón de CONSULTA, puedes consultar (buscar) un reporte ya creado'
-    },
-    {
-      img: '/assets/crear.svg',
-      titulo: 'Creación de Reportes',
-      desc: 'Seleccionando en el botón de CREAR, puedes generar tu reporte de Linea o de Internet Aba'
-    }
-  ];
+  
 
-  constructor( ) { }
+  abonado = new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$'),]);
+
+    constructor( private reportService: ReportsService,
+                   ) {
+
+                  
+                  }
 
   ngOnInit() {
   }
 
 
+  queryAbonado(event: Event){
 
+    if(this.abonado.invalid){return;}
+
+    event.preventDefault();
+
+      console.log(this.abonado.value);
+      const abonado = this.abonado.value;
+
+      this.reportService.getReport(abonado).subscribe(resp =>{
+        console.log(resp);
+      })
+
+
+    }
+
+
+
+
+
+
+  }
 
  
-
-}
