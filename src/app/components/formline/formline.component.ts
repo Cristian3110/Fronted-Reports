@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UiServiceService } from 'src/app/services/ui-service.service';
 import { ReportsService } from '../../services/reports.service';
 import { ToastController } from '@ionic/angular';
 
@@ -38,7 +37,6 @@ export class FormlineComponent implements OnInit {
 
   constructor( private formBuilder: FormBuilder,
                private reportsService: ReportsService,
-               private uiService: UiServiceService,
                private toastCtrl: ToastController
                ) {
 
@@ -90,22 +88,45 @@ export class FormlineComponent implements OnInit {
 
   // haciendo pruebas para colocar un toastController
 
+  async presentToastOK(message: string) {
+    const toast = await this.toastCtrl.create({
+      message: message,
+      duration: 10000,
+      color: 'primary',
+      animated: true,
+      mode: "ios",
+     
+       
+    });
+    toast.present();
+  }
+
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
       duration: 10000,
-      color: 'dark',
+      color: 'danger',
       animated: true,
       mode: "ios",
+     
        
     });
     toast.present();
   }
  
-
-
-
-
+  async presentToastError(message: string) {
+    const toast = await this.toastCtrl.create({
+      message: message,
+      duration: 10000,
+      color: 'dark',
+      position: 'top',
+      animated: true,
+      mode: "ios",
+     
+       
+    });
+    toast.present();
+  }
 
 
    reportLine(event: Event){
@@ -128,16 +149,17 @@ export class FormlineComponent implements OnInit {
                 .subscribe((resp:any) =>{
                   console.log(resp);
                   
-                  if(valido){
-
-                    // this.presentToast('Su reporte con número de abonado: ' + resp.abonado + ' se ha generado de manera exitosa bajo el código: ' + resp._id);
-                     this.presentToast(`Su reporte con el número: ${resp.abonado} se ha generado correctamente bajo el código: ${resp._id}`);
-
-                  } else {
-                    this.presentToast('Este número de abonado ya tiene un reporte creado, pruebe en la paǵina de consulta')
+                  if ( resp['ok'] ){
+                    this.presentToastOK(`Su reporte con el número de Abonado: ${resp.reporte.abonado} se ha creado satisfactoriamente bajo el código ${resp.reporte._id} en fecha: ${resp.reporte.created}`)
+                    //this.uiService.alertaInformativa(``);
+                  }else{
+                    //this.uiService.alertaInformativa('no tiene reporte');
+                    this.presentToast(`${resp.mensaje}, por favor dirigirse a la página de consulta`)
                   }
-                 
 
+                },(errorSer)=>{
+
+                  this.presentToastError('Error 500:  Internal Server Error');
                 })  
         
               

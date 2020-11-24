@@ -81,7 +81,7 @@ export class ForminterComponent implements OnInit {
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 10000,
+      duration: 7000,
       color: 'dark',
       animated: true,
       mode: "ios",

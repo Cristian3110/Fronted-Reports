@@ -29,15 +29,22 @@ export class ReportsService {
   
     this.paginaReports ++;
     return this.http.get<RespuestaReportes>(`${URL}/reportes/?pagina=${this.paginaReports}`);
-  }
+  };
+
+
   
   // Petición de los reportes por Abonado
   
   getReport(id: number){
-    
-  return this.http.get<Reporte>(`${URL}/reportes/consulta/${id}`);
 
-  }
+    const headers = new HttpHeaders({
+      'x-token': this.usuarioService.token
+
+    });
+    
+  return this.http.get<Reporte>(`${URL}/reportes/consulta/${id}`, {headers});
+
+  };
   
   
   
@@ -55,19 +62,8 @@ export class ReportsService {
 
             });
 
-            return this.http.post<Reporte>(`${URL}/reportes`, data, {headers})
-                   .pipe(
-                     map( (resp:any) =>{
-                       data._id = resp.reporte;
-                       return data._id;
-                     })
-                   )
-                //  .subscribe(resp=>{
-                //    console.log(resp); // solo para visualizar que se esta creando el reporte
-                  
-                //  });
-                
-                
+            // Este es el código original 
+             return this.http.post<Reporte>(`${URL}/reportes`, data, {headers})
                
 
 
