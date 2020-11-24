@@ -164,17 +164,11 @@ export class FormlineComponent implements OnInit {
                   this.presentToastError('Error 500:  Internal Server Error');
                 })  
         
-              
-         
+                
           this.FormLine.reset();
-      
-          
-     
+ 
 
 
   };
-
-
-
 
 };

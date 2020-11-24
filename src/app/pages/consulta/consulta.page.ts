@@ -18,7 +18,6 @@ export class ConsultaPage implements OnInit {
   abonado = new FormControl('', [Validators.required, Validators.pattern('^[0-9]{10}$'),]);
 
     constructor( private reportService: ReportsService,
-                 private uiService: UiServiceService,
                  private toastCtrl: ToastController
                    ) {
 
@@ -82,28 +81,21 @@ export class ConsultaPage implements OnInit {
         console.log(resp);
 
           this.ticket = resp;
-          // console.log(this.ticket.Reporte.email)
+       
 
           if ( resp['ok'] ){
             this.presentToastOK(`Abonado: ${this.ticket.Reporte.abonado} bajo el código ${this.ticket.Reporte._id} creado en fecha: ${this.ticket.Reporte.created}`)
-            //this.uiService.alertaInformativa(``);
+          
           }else{
-            //this.uiService.alertaInformativa('no tiene reporte');
+            
             this.presentToast(`${this.ticket.mensaje}`)
           }
-        //   if(!valido){
-        //     console.log('no tiene reporte');
-  
-        //   }else{
-          
-        //     this.uiService.alertaInformativa('si tiene reporte');
-        //  this.uiService.alertaInformativa(`${this.ticket.Reporte.email} ${this.ticket.Reporte.created}`);
-        // }
+     
         
 
       },( errorSer)=>{
         console.log(errorSer);
-        //this.uiService.alertaInformativa(errorSer.name);
+       
         this.presentToastError(`${errorSer.name}`)
       });
 
