@@ -91,7 +91,7 @@ export class FormlineComponent implements OnInit {
   async presentToastOK(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 10000,
+      duration: 6000,
       color: 'primary',
       position: 'top',
       animated: true,
@@ -105,7 +105,7 @@ export class FormlineComponent implements OnInit {
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 10000,
+      duration: 6000,
       color: 'danger',
       position: 'top',
       animated: true,
@@ -119,7 +119,7 @@ export class FormlineComponent implements OnInit {
   async presentToastError(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 10000,
+      duration: 6000,
       color: 'dark',
       position: 'top',
       animated: true,
