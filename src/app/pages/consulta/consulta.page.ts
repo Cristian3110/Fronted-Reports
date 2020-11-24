@@ -29,8 +29,9 @@ export class ConsultaPage implements OnInit {
   async presentToastOK(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 10000,
+      duration: 3000,
       color: 'primary',
+      position: 'top',
       animated: true,
       mode: "ios",
      
@@ -42,8 +43,9 @@ export class ConsultaPage implements OnInit {
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 10000,
+      duration: 3000,
       color: 'danger',
+      position: 'top',
       animated: true,
       mode: "ios",
      
@@ -55,7 +57,7 @@ export class ConsultaPage implements OnInit {
   async presentToastError(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 10000,
+      duration: 3000,
       color: 'dark',
       position: 'top',
       animated: true,

@@ -82,7 +82,7 @@ export class ForminterComponent implements OnInit {
   async presentToastOK(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 6000,
+      duration: 3000,
       color: 'primary',
       position: 'top',
       animated: true,
@@ -96,7 +96,7 @@ export class ForminterComponent implements OnInit {
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 6000,
+      duration: 3000,
       color: 'danger',
       position: 'top',
       animated: true,
@@ -110,7 +110,7 @@ export class ForminterComponent implements OnInit {
   async presentToastError(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 6000,
+      duration: 3000,
       color: 'dark',
       position: 'top',
       animated: true,
