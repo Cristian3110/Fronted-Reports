@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UiServiceService } from 'src/app/services/ui-service.service';
 import { ReportsService } from '../../services/reports.service';
 import { ToastController } from '@ionic/angular';
 
@@ -32,7 +31,6 @@ export class ForminterComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
               private reportsService: ReportsService,
-              private uiService: UiServiceService,
               private toastCtrl: ToastController) {
 
                 this.crearFormulario();
@@ -78,13 +76,46 @@ export class ForminterComponent implements OnInit {
   }
 
 
+ 
+  // haciendo pruebas para colocar un toastController
+
+  async presentToastOK(message: string) {
+    const toast = await this.toastCtrl.create({
+      message: message,
+      duration: 10000,
+      color: 'primary',
+      position: 'top',
+      animated: true,
+      mode: "ios",
+     
+       
+    });
+    toast.present();
+  }
+
   async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 7000,
-      color: 'dark',
+      duration: 10000,
+      color: 'danger',
+      position: 'top',
       animated: true,
       mode: "ios",
+     
+       
+    });
+    toast.present();
+  }
+ 
+  async presentToastError(message: string) {
+    const toast = await this.toastCtrl.create({
+      message: message,
+      duration: 10000,
+      color: 'dark',
+      position: 'top',
+      animated: true,
+      mode: "ios",
+     
        
     });
     toast.present();
@@ -111,18 +142,20 @@ export class ForminterComponent implements OnInit {
               .subscribe((resp:any) =>{
                 console.log(resp);
                 
-              if(valido){
+                if ( resp['ok'] ){
+                  this.presentToastOK(`Su reporte con el número de Abonado: ${resp.reporte.abonado} se ha creado satisfactoriamente bajo el código ${resp.reporte._id} en fecha: ${resp.reporte.created}`)
+                  
+                }else{
+                 
+                  this.presentToast(`${resp.mensaje}, por favor dirigirse a la página de consulta`)
+                }
 
-                this.presentToast(`Su reporte con número de abonado: ${resp.abonado} se ha generado correctamente bajo el código: ${resp._id}`);
+              },(errorSer)=>{
 
-              } else {
-                
-                this.presentToast(' Este número de abonado ya tiene un reporte creado, pruebe en la paǵina de consulta');
-              }
-
-
-
+                this.presentToastError('Error 500:  Internal Server Error');
               })  
+      
+            
       
             
        

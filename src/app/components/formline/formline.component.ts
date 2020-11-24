@@ -93,6 +93,7 @@ export class FormlineComponent implements OnInit {
       message: message,
       duration: 10000,
       color: 'primary',
+      position: 'top',
       animated: true,
       mode: "ios",
      
@@ -106,6 +107,7 @@ export class FormlineComponent implements OnInit {
       message: message,
       duration: 10000,
       color: 'danger',
+      position: 'top',
       animated: true,
       mode: "ios",
      
