@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../../services/usuario.service';
-import { NavController } from '@ionic/angular';
-import { UiServiceService } from '../../services/ui-service.service';
-//import { Usuario } from '../../interfaces/interfaces';
+import { NavController, ToastController } from '@ionic/angular';
+
 
 
 
@@ -22,7 +21,7 @@ export class LoginPage implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private usuarioService: UsuarioService,
               private navCtrl: NavController,
-              private uiService:UiServiceService) {
+              private toastCtrl: ToastController) {
 
     this.crearFormulario2();
     this.crearFormulario();
@@ -69,7 +68,7 @@ export class LoginPage implements OnInit {
   crearFormulario2(){
 
     this.forma2 = this.formBuilder.group({
-      name1: ['', [Validators.required]],
+      name1: ['', [Validators.required,  Validators.minLength(4)]],
       email2:['',[Validators.required, Validators.pattern('^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$')]],
       password2:['', Validators.required],
     });
@@ -91,11 +90,10 @@ export class LoginPage implements OnInit {
       this.navCtrl.navigateRoot('/gestion', {animated:true});
     }else{
       //mostrar alerta de usuario y contraseña no son correctos
-      this.uiService.alertaInformativa(
-        'Usuario y Constraseña no son correctos'
-      );
+      this.presentToast('Usuario / Contraseña no son correctos');
     }
 
+    this.forma.reset();
   };
 
 
@@ -114,11 +112,24 @@ export class LoginPage implements OnInit {
        this.navCtrl.navigateRoot('/gestion', {animated:true});
     }else{
       //mostrar alerta de usuario y contraseña no son correctos
-      this.uiService.alertaInformativa(
-        'Este email ya está registrado/ complete los datos'
-      );
+      this.presentToast('Este email ya está registrado/ complete los datos');
     }
 
+    this.forma2.reset();
   };
+
+  async presentToast(message: string) {
+    const toast = await this.toastCtrl.create({
+      message: message,
+      duration: 3000,
+      color: 'danger',
+      position: 'top',
+      animated: true,
+      mode: "ios",
+     
+       
+    });
+    toast.present();
+  }
 
 };

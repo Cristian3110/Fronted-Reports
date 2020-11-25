@@ -29,7 +29,7 @@ export class ConsultaPage implements OnInit {
   async presentToastOK(message: string) {
     const toast = await this.toastCtrl.create({
       message: message,
-      duration: 3000,
+      duration: 5000,
       color: 'primary',
       position: 'top',
       animated: true,
